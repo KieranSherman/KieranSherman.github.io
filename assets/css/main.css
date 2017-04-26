@@ -1092,6 +1092,62 @@
 
 		}
 
+
+	/* Membership Form */
+
+		#membership-form {
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: -ms-flex;
+			display: flex;
+			position: relative;
+		}
+
+			#membership-form input[type="text"] {
+				width: 36em;
+			}
+			#membership-form input[type="email"] {
+				width: 18em;
+			}
+
+			#membership-form > * {
+				margin: 0 0 0 1em;
+			}
+
+			#membership-form > :first-child {
+				margin: 0 0 0 0;
+			}
+
+			@media screen and (max-width: 480px) {
+
+				#membership-form {
+					-moz-flex-direction: column;
+					-webkit-flex-direction: column;
+					-ms-flex-direction: column;
+					flex-direction: column;
+				}
+
+					#membership-form input[type="type"],
+					#membership-form input[type="email"] {
+						width: 100%;
+					}
+
+					#membership-form > * {
+						margin: 1.25em 0 0 0;
+					}
+
+					#membership-form .message {
+						bottom: -1.5em;
+						font-size: 0.9em;
+						height: 1em;
+						left: 0;
+						line-height: inherit;
+						margin-top: 0;
+						position: absolute;
+					}
+
+			}
+
 /* Footer */
 
 	#footer {
