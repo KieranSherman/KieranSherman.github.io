@@ -1,15 +1,17 @@
 <html>
   <head>
+    <title>JoJ</title>
+
+    <script type="text/javascript" src="misc/main.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
     <link href="misc/main.css" rel="stylesheet" type="text/css" />
-    <title>JoJ</title>
     <meta name="viewport" content="width=device-width">
   </head>
 
   <body>
 
     <div id="header">
-      Llama
+      Llama Engine V1.0.0
     </div>
 
     <div>
@@ -31,12 +33,15 @@
 
     <div>
       <p>Access Code</p>
-      <ul>
-        <li> <input type="text" maxlength="1"></li>
-        <li> <input type="text" maxlength="1"></li>
-        <li> <input type="text" maxlength="1"></li>
-        <li> <input type="text" maxlength="1"></li>
-      </ul>
+      <form name="access">
+        <ul>
+          <li> <input type="text" maxlength="1" name="input1" oninput="autotab(this, document.access.input2)"></li>
+          <li> <input type="text" maxlength="1" name="input2" oninput="autotab(this, document.access.input3)"></li>
+          <li> <input type="text" maxlength="1" name="input3" oninput="autotab(this, document.access.input4)"></li>
+          <li> <input type="text" maxlength="1" name="input4" oninput="autotab(this, document.access.input5)"></li>
+          <li> <input type="text" maxlength="1" name="input5" oninput=""></li>
+        </ul>
+      </form>
     </div>
 
   </body>
