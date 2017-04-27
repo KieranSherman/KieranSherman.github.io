@@ -9,6 +9,10 @@ function doOnClick(current) {
   current.select();
 }
 
+function showAccess() {
+  document.getElementById("access").style.visibility = "visible";
+}
+
 function checkValid(form) {
   var word = "LLAMA".split('');
   var valid = true;

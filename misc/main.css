@@ -43,6 +43,19 @@ input.inset:before{
   margin: 2px 0px 0px 2px;
 }
 
+button.link {
+  color: white;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+
+#access {
+  visibility: hidden;
+}
+
 #copyright {
   background:#444;
   color:white;
@@ -68,8 +81,8 @@ input.inset:before{
   -webkit-animation-fill-mode:forwards;
   animation-fill-mode:forwards;
 
-  -webkit-animation-duration:1s;
-  animation-duration:1s;
+  -webkit-animation-duration:0.75s;
+  animation-duration:0.75s;
 }
 
 .fade-in.one {
@@ -83,8 +96,8 @@ input.inset:before{
 }
 
 .fade-in.three {
-  -webkit-animation-delay: 3s;
-  animation-delay: 3s;
+  -webkit-animation-delay: 2s;
+  animation-delay: 2s;
 }
 
 @keyframes fadeIn {
