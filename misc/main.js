@@ -35,11 +35,11 @@ var AUTH = (function() {
 })();
 
 function checkValid(form) {
-  var word = "LLAMA".split('');
+  var code = "LL4M4".split('');
   var valid = true;
 
-  for(var i = 0; i < word.length; i++) {
-    var c = word[i];
+  for(var i = 0; i < code.length; i++) {
+    var c = code[i];
     var name = "input"+i;
     var val = form.elements[i].value;
 

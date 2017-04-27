@@ -43,7 +43,7 @@ input.inset:before{
   margin: 2px 0px 0px 2px;
 }
 
-button.link {
+button.hidden {
   font-family: Montserrat;
   color: inherit;
   background: none;
