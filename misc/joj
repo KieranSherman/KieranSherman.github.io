@@ -1,33 +1,27 @@
 #!/bin/bash
-
-## usage: joj [-ou]
-## a: open the project folder in Atom
-## c: clone the dev directory to the usr directory
-## l: view JarOfJava locally
-## p: view JarOfJava publicly
-## r: retrieve from the git repository
-## u: update to the git repository
-
+#author: Kieran Sherman
 
 JoJPATH=`echo ~`"/bin/JarOfJava"
 JoJNAME="kieransherman.github.io"
+JoJVERSION="version 1.0.0"
+JoJUSAGE="usage: joj [-acelpru] | help"
+JoJINFO="\tJOJ $JoJVERSION\nCopyright 2017 | Kieran Sherman\n\n$JoJUSAGE\n"
 
 __check() {
   arg1=$1
 
-  usage="usage: joj [-aclpru] | help"
   usage_a="a: open the project folder in Atom"
   usage_c="c: clone the dev directory to the usr directory"
+  usage_e="e: edit the joj shell file in Atom"
   usage_l="l: view JarOfJava locally (from your computer)"
   usage_p="p: view JarOfJava publicly (online)"
   usage_r="r: retrieve from the git repository"
   usage_u="u: update to the git repository"
-  usages=("$usage_a" "$usage_c" "$usage_l" "$usage_p" "$usage_r" "$usage_u")
+  usages=("$usage_a" "$usage_c" "$usage_e" "$usage_l" "$usage_p" "$usage_r" "$usage_u")
 
   if [[ "$arg1" == "help" ]]
   then
     echo
-    echo $usage
     for ((i=0;i<${#usages[@]};i++)) do
       echo ${usages[$i]}
     done
@@ -41,40 +35,61 @@ __check() {
       __parse ${arg1:$i:1} $2
     done
   else
-    echo "joj: illegal entry"
-    echo $usage
+    printf "\n================================\n"
+    printf "$JoJINFO"
+    printf "================================\n\n"
   fi
 }
 
 __parse() {
+  HELP=false
+  [[ "$2" == "help" ]] && HELP=true
+
   case $1 in
     a)
-      open -b "com.github.atom" .
+      [[ $HELP == true ]] && echo "usage: joj -a |-> opens the JoJ files in Atom" || (
+        open -b "com.github.atom" .
+      )
       ;;
     c)
-      rm -R usr
-      cp -R dev usr
+      [[ $HELP == true ]] && echo "usage: joj -c | clones the dev directory to the usr directory" || (
+        rm -R usr
+        cp -R dev usr
+      )
+    ;;
+    e)
+      [[ $HELP == true ]] && echo "usage: joj -e |-> opens the joj shell script in Atom" || (
+        open -b "com.github.atom" /usr/local/bin/joj
+      )
     ;;
     l)
-      if [[ -z "$2" ]]
-      then
-        open index.html
-      else
-        open "$2"
-      fi
+      [[ $HELP == true ]] && echo "usage: joj -l [file] |-> opens an html file locally, defaults to index.html" || (
+        if [[ -z "$2" ]]
+        then
+          open index.html
+        else
+          open "$2"
+        fi
+      )
       ;;
     p)
-      open -b "com.google.chrome" "http://www.jarofjava.com"
+      [[ $HELP == true ]] && echo "usage: joj -p |-> opens JoJ publicly (via Chrome) @ www.jarofjava.com" || (
+        open -b "com.google.chrome" "http://www.jarofjava.com"
+      )
       ;;
     r)
-      git fetch --all
-      git reset --hard origin/master
+      [[ $HELP == true ]] && echo "usage: joj -r |-> retrieves the current github JoJ files and overwrites existing" || (
+        git fetch --all
+        git reset --hard origin/master
+      )
       ;;
     u)
-      x=`date +%H:%M:%S--%m/%d`
-      git add .
-      git commit -m "Auto-update from CLI @ $x [$2]"
-      git push
+      [[ $HELP == true ]] && echo "usage: joj -u [message] |-> updates your JoJ files to github" || (
+        x=`date +%H:%M:%S--%m/%d`
+        git add .
+        git commit -m "Auto-update from CLI @ $x [$2]"
+        git push
+      )
       ;;
   esac
 }
@@ -83,6 +98,7 @@ __install() {
   dir="$1"
 
   echo
+  echo "joj --$JoJVERSION"
   echo "================================================="
 
   mv "$dir/joj" "/usr/local/bin"
