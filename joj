@@ -1,0 +1,120 @@
+#!/bin/bash
+
+## usage: joj [-ou]
+## a: open the project folder in Atom
+## c: clone the dev directory to the usr directory
+## l: view JarOfJava locally
+## p: view JarOfJava publicly
+## r: retrieve from the git repository
+## u: update to the git repository
+
+
+JoJPATH=`echo ~`"/bin/JarOfJava"
+JoJNAME="kieransherman.github.io"
+
+__check() {
+  arg1=$1
+
+  usage="usage: joj [-aclpru] | help"
+  usage_a="a: open the project folder in Atom"
+  usage_c="c: clone the dev directory to the usr directory"
+  usage_l="l: view JarOfJava locally (from your computer)"
+  usage_p="p: view JarOfJava publicly (online)"
+  usage_r="r: retrieve from the git repository"
+  usage_u="u: update to the git repository"
+  usages=("$usage_a" "$usage_c" "$usage_l" "$usage_p" "$usage_r" "$usage_u")
+
+  if [[ "$arg1" == "help" ]]
+  then
+    echo
+    echo $usage
+    for ((i=0;i<${#usages[@]};i++)) do
+      echo ${usages[$i]}
+    done
+    echo
+    return
+  fi
+
+  if [[ "${arg1:0:1}" == "-" ]]
+  then
+    for ((i=1;i<${#arg1};i++)) do
+      __parse ${arg1:$i:1} $2
+    done
+  else
+    echo "joj: illegal entry"
+    echo $usage
+  fi
+}
+
+__parse() {
+  case $1 in
+    a)
+      open -b "com.github.atom" .
+      ;;
+    c)
+      rm -R usr
+      cp -R dev usr
+    ;;
+    l)
+      if [[ -z "$2" ]]
+      then
+        open index.html
+      else
+        open "$2"
+      fi
+      ;;
+    p)
+      open -b "com.google.chrome" "http://www.jarofjava.com"
+      ;;
+    r)
+      git fetch --all
+      git reset --hard origin/master
+      ;;
+    u)
+      x=`date +%H:%M:%S--%m/%d`
+      git add .
+      git commit -m "Auto-update from CLI @ $x [$2]"
+      git push
+      ;;
+  esac
+}
+
+__install() {
+  dir="$1"
+
+  echo
+  echo "================================================="
+
+  mv "$dir/joj" "/usr/local/bin"
+
+  echo "--           creating file structure           --"
+  echo "--                                             --"
+  mkdir -p $JoJPATH
+  cd $JoJPATH
+
+  echo "--           cloning git repository            --"
+  echo "--                                             --"
+  git clone "https://github.com/KieranSherman/$JoJNAME"
+
+  echo "--                                             --"
+  echo "--         JoJ installed successfully          --"
+  echo "-- restart Terminal for changes to take effect --"
+  echo "================================================="
+  echo
+}
+
+main() {
+  dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+  if [[ ! "$dir" == "/usr/local/bin" ]]
+  then
+    __install $dir
+    return
+  fi
+
+  cd "$JoJPATH/$JoJNAME"
+
+  __check $1 $2
+}
+
+main $1 $2
