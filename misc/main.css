@@ -14,8 +14,32 @@ div {
   text-align: center;
 }
 
+ul {
+ padding: 0;
+}
+
 li {
   display: inline;
+}
+
+input {
+  text-align: center;
+  -webkit-border-radius: 7px;
+  border-radius: 7px;
+  border:1px solid black;
+  height:30px;
+  width:40px;
+  font-size:20px;
+  font-family: Montserrat;
+}
+
+input:focus {
+  outline: none;
+}
+
+input.inset:before{
+  position: absolute;
+  margin: 2px 0px 0px 2px;
 }
 
 #copyright {
@@ -23,6 +47,15 @@ li {
   color:white;
   font-size:60%;
   padding:10px;
+}
+
+#header {
+  background: gainsboro;
+  color: inherit;
+  border-bottom: 1px solid black;
+  padding:10px;
+  text-align: left;
+  font-size:75%;
 }
 
 .fade-in {
