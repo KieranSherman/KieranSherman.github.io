@@ -1,12 +1,26 @@
-.text_paragraph >p{
-    -webkit-animation: fadi 5s 1;
-    -moz-animation: fadi 5s 1;
+body {
+  background:white;
 }
-@-webkit-keyframes fadi {
-    0%   { opacity: 0; }
-    100% { opacity: 1; }
+
+p {
+  font-family:Montserrat;
+  font-size:15px;
+  padding:10px;
+  color:#444;
+  background:white;
 }
-@-moz-keyframes fadi {
-    0%   { opacity: 0; }
-    100% { opacity: 1; }
+
+#fade {
+  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
