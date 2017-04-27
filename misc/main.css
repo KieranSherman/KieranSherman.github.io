@@ -1,24 +1,28 @@
 body {
   margin:0;
   padding:0;
-  background:white;
+  background:gainsboro;
 }
 
 div {
-  font-family:Montserrat;
-  font-size:15px;
-  padding:4px;
-  color:#444;
-  background:white;
-  text-align:center;
+  font-family: Montserrat;
+  font-size: 100%;
+  padding: 3px;
+  color: #444;
+  background: whitesmoke;
+  margin: 0 auto;
+  text-align: center;
+}
+
+li {
+  display: inline;
 }
 
 #copyright {
   background:#444;
-  margin-top:20px;
   color:white;
-  font-size:9px;
-  padding:5px;
+  font-size:60%;
+  padding:10px;
 }
 
 .fade-in {
@@ -45,8 +49,8 @@ div {
 }
 
 .fade-in.three {
-  -webkit-animation-delay: 2s;
-  animation-delay: 2s;
+  -webkit-animation-delay: 3s;
+  animation-delay: 3s;
 }
 
 @keyframes fadeIn {
