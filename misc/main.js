@@ -9,9 +9,30 @@ function doOnClick(current) {
   current.select();
 }
 
-function showAccess() {
-  document.getElementById("access").style.visibility = "visible";
-}
+var AUTH = (function() {
+  var id_1 = 0;
+  var id_2 = 0;
+
+  function check() {
+    if(id_1 == 2 && id_2 == 1)
+      showAccess();
+  }
+
+  function showAccess() {
+    document.getElementById("access").style.visibility = "visible";
+  }
+
+  return {
+    increment_id_1: function() {
+      id_1 += 1;
+      check();
+    },
+    increment_id_2: function() {
+      id_2 += 1;
+      check();
+    }
+  }
+})();
 
 function checkValid(form) {
   var word = "LLAMA".split('');
