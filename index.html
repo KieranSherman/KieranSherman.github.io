@@ -35,11 +35,11 @@
       <p>Access Code</p>
       <form name="access">
         <ul>
-          <li> <input type="text" maxlength="1" name="input1" oninput="autotab(this, document.access.input2)"></li>
-          <li> <input type="text" maxlength="1" name="input2" oninput="autotab(this, document.access.input3)"></li>
-          <li> <input type="text" maxlength="1" name="input3" oninput="autotab(this, document.access.input4)"></li>
-          <li> <input type="text" maxlength="1" name="input4" oninput="autotab(this, document.access.input5)"></li>
-          <li> <input type="text" maxlength="1" name="input5" oninput=""></li>
+          <li> <input type="text" maxlength="1" name="input1" onclick="doOnClick(this)" oninput="autoTab(this, document.access.input2)"></li>
+          <li> <input type="text" maxlength="1" name="input2" onclick="doOnClick(this)" oninput="autoTab(this, document.access.input3)"></li>
+          <li> <input type="text" maxlength="1" name="input3" onclick="doOnClick(this)" oninput="autoTab(this, document.access.input4)"></li>
+          <li> <input type="text" maxlength="1" name="input4" onclick="doOnClick(this)" oninput="autoTab(this, document.access.input5)"></li>
+          <li> <input type="text" maxlength="1" name="input5" onclick="doOnClick(this)" oninput="checkValid(document.access)"></li>
         </ul>
       </form>
     </div>
