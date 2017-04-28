@@ -48,11 +48,24 @@ ul {
  padding: 0;
 }
 
+.fade {
+  display: none;
+}
+
+.slide {
+  display: none;
+}
+
+#access {
+  display:none;
+}
+
 #copyright {
   background:#444;
   color:white;
   font-size:60%;
   padding:10px;
+  display:none;
 }
 
 #header {
@@ -61,32 +74,4 @@ ul {
   padding:10px;
   text-align: left;
   font-size:60%;
-}
-
-.fade-in {
-  opacity:0;
-  animation:fadeIn ease-in 1;
-  animation-fill-mode:forwards;
-  animation-duration:0.75s;
-}
-
-.fade-in.one {
-  animation-delay: 0s;
-}
-
-.fade-in.two {
-  animation-delay: 0.5s;
-}
-
-.fade-in.three {
-  animation-delay: 1s;
-}
-
-.hide {
-  display: none;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
 }

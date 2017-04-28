@@ -8,22 +8,22 @@
   </head>
 
   <body>
-
-    <div id="header">
+    <header id="header" class="fade" data-time="1000">
       <img src="imgs/llama.png" width="15px" height="15px" />
       <button class="hidden" onclick="AUTH.increment_id_1()">Llama Engine V1.0.0</button>
-    </div>
+    </header>
 
     <div>
-      <p class="fade-in one" style="margin:10px 0 0 0;">
+      <p style="margin:10px 0 0 0;" class="fade" data-time="1000" data-delay="0">
         <span style="color:rgb(10, 150, 170)">Jar of Java</span> is currently under development.
       </p>
-      <p class="fade-in two" style="margin:5px 0 10px 0;">
+
+      <p style="margin:5px 0 10px 0;" class="slide" data-time="500" data-delay="1000">
         Check back later for updates.
       </p>
     </div>
 
-    <div id="copyright" class="fade-in three">
+    <div id="copyright" class="slide">
       <ul>
         <li> <button class="hidden" onclick="AUTH.increment_id_2()">Build 1.0.0</button> | </li>
         <li> Copyright 2017 | </li>
@@ -31,7 +31,7 @@
       </ul>
     </div>
 
-    <div class="hide">
+    <div id="access" data-time="100">
       <p>Access Code</p>
       <form name="access">
         <ul>
@@ -45,5 +45,11 @@
     </div>
 
     <script type="text/javascript" src="scripts/main.js"></script>
+    <script src="../../node_modules/jquery/dist/jquery.js"></script>
+
+    <script>
+      showElements(".slide");
+      fadeElements(".fade");
+    </script>
   </body>
 </html>

@@ -9,6 +9,22 @@ function doOnClick(current) {
   current.select();
 }
 
+function showElements(elementID) {
+  $(elementID).each(function() {
+    var time = $(this).data("time") || 1000;
+    var delay = $(this).data("delay") || 0;
+    $(this).delay(delay).slideDown(time);
+  });
+}
+
+function fadeElements(elementID) {
+  $(elementID).each(function() {
+    var time = $(this).data("time") || 1000;
+    var delay = $(this).data("delay") || 0;
+    $(this).delay(delay).fadeIn(time);
+  });
+}
+
 var AUTH = (function() {
   var id_1 = 0;
   var id_2 = 0;
@@ -19,8 +35,7 @@ var AUTH = (function() {
   }
 
   function showAccess() {
-    var accessCode = document.getElementsByClassName("hide")[0];
-    accessCode.className = "";
+    fadeElements("#access");
   }
 
   return {
