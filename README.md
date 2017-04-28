@@ -5,7 +5,7 @@ curl -o joj https://raw.githubusercontent.com/KieranSherman/kieransherman.github
 ```
 
 ## Requirements
-- UNIX-based CLI *(i.e. Terminal)* with [git commands](https://git-scm.com/downloads)
+- UNIX-based CLI *(i.e. Terminal)* with [git](https://git-scm.com/downloads)
 - [Google Chrome](https://www.google.com/chrome/browser/desktop/index.html?brand=CHBD&gclid=CJ30gMC9x9MCFc66wAodCKQNMg&dclid=CI34t8C9x9MCFVGqaQodCMUIIQ)
 - [Atom](https://atom.io/)
 
