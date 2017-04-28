@@ -5,10 +5,9 @@ curl -o joj https://raw.githubusercontent.com/KieranSherman/kieransherman.github
 ```
 
 ## Requirements
-- UNIX-based CLI *(i.e. Terminal)*
+- UNIX-based CLI *(i.e. Terminal) with [git commands](https://git-scm.com/downloads)*
 - [Google Chrome](https://www.google.com/chrome/browser/desktop/index.html?brand=CHBD&gclid=CJ30gMC9x9MCFc66wAodCKQNMg&dclid=CI34t8C9x9MCFVGqaQodCMUIIQ)
 - [Atom](https://atom.io/)
-- [git commands](https://git-scm.com/downloads)
 
 ## **What is JoJ?**
 Jar of Java started as me trying to find a way to host a website for free.  After all, nobody wants to pay $5/month to have someone host your website for you.  I already had a domain (http://jarofjava.com), and I didn't want to set up a server on my personal machine to host it.  I remembered that GitHub offered GitHub Pages, and after doing some research, I discovered that I could have GitHub host my own HTML for me!
