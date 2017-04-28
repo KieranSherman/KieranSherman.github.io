@@ -4,7 +4,7 @@
 JoJSHELL="/usr/local/bin"
 JoJPATH=`echo ~`"/bin/JarOfJava"
 JoJNAME="kieransherman.github.io"
-JoJVERSION="version 1.3.2"
+JoJVERSION="version 1.4.0"
 JoJUSAGE="usage: joj [-acejlpru] | help"
 JoJINFO="\tJoJ $JoJVERSION\nCopyright 2017 | Kieran Sherman\n\n$JoJUSAGE\n"
 
@@ -19,7 +19,8 @@ __check() {
   p="p: view JarOfJava publicly (online)"
   r="r: retrieve from the git repository"
   u="u: update to the git repository"
-  usages=("$a" "$c" "$e" "$j" "$l" "$p" "$r" "$u" )
+  x="x: remove the JoJ shell commands and repository"
+  usages=("$a" "$c" "$e" "$j" "$l" "$p" "$r" "$u" "$x")
 
   if [[ "$arg1" == "help" ]]
   then
@@ -103,6 +104,11 @@ __parse() {
         git push
       )
       ;;
+    x)
+      rm "$JoJSHELL/joj"
+      rm -R "$JoJPATH"
+      echo "JoJ has been uninstalled"
+    ;;
     *)
       printf "%s\n\n" "$JoJUSAGE"
       exit 1
