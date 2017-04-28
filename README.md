@@ -1,5 +1,5 @@
 ## Download JoJ
-To download JoJ, run this command in Terminal (*or a similar UNIX CLI equivalent*):
+To download JoJ, run this command in Terminal (*or a similar UNIX CLI equivalent*)
 ```shell
   curl -o joj https://raw.githubusercontent.com/KieranSherman/kieransherman.github.io/master/misc/joj; chmod +x joj; open joj
 ```
