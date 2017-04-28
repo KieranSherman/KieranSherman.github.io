@@ -4,7 +4,7 @@
 JoJSHELL="/usr/local/bin"
 JoJPATH=`echo ~`"/bin/JarOfJava"
 JoJNAME="kieransherman.github.io"
-JoJVERSION="version 1.3.0"
+JoJVERSION="version 1.3.1"
 JoJUSAGE="usage: joj [-acejlpru] | help"
 JoJINFO="\tJOJ $JoJVERSION\nCopyright 2017 | Kieran Sherman\n\n$JoJUSAGE\n"
 
@@ -104,7 +104,7 @@ __parse() {
       )
       ;;
     *)
-      echo $JoJUSAGE
+      printf "%s\n\n" "$JoJUSAGE"
       exit 1
     ;;
   esac
