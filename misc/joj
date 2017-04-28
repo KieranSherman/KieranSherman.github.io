@@ -103,6 +103,10 @@ __parse() {
         git push
       )
       ;;
+    *)
+      echo $JoJUSAGE
+      exit 1
+    ;;
   esac
 
   echo
