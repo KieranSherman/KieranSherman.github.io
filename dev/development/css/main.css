@@ -74,29 +74,20 @@ button.hidden {
 
 .fade-in {
   opacity:0;
-
-  -webkit-animation:fadeIn ease-in 1;
   animation:fadeIn ease-in 1;
-
-  -webkit-animation-fill-mode:forwards;
   animation-fill-mode:forwards;
-
-  -webkit-animation-duration:0.75s;
   animation-duration:0.75s;
 }
 
 .fade-in.one {
-  -webkit-animation-delay: 0s;
   animation-delay: 0s;
 }
 
 .fade-in.two {
-  -webkit-animation-delay: 0.5s;
   animation-delay: 0.5s;
 }
 
 .fade-in.three {
-  -webkit-animation-delay: 1.5s;
   animation-delay: 1.5s;
 }
 
