@@ -4,7 +4,7 @@
 JoJSHELL="/usr/local/bin"
 JoJPATH=`echo ~`"/bin/JarOfJava"
 JoJNAME="kieransherman.github.io"
-JoJVERSION="version 1.4.6"
+JoJVERSION="version 1.4.7"
 JoJUSAGE="usage: joj [-acejlprux] | help"
 JoJINFO="\tJoJ $JoJVERSION\nCopyright 2017 | Kieran Sherman\n\n$JoJUSAGE\n"
 
@@ -110,7 +110,7 @@ __parse() {
         read USR
 
         [[ "$USR" == "y" ]] && (
-          rm "$JoJSHELL/joj"
+          rm -v "$JoJSHELL/joj"
           rm -Rvf "$JoJPATH"
           echo "JoJ has been uninstalled"
         )
