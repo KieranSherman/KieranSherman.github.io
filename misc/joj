@@ -4,8 +4,8 @@
 JoJSHELL="/usr/local/bin"
 JoJPATH=`echo ~`"/bin/JarOfJava"
 JoJNAME="kieransherman.github.io"
-JoJVERSION="version 1.1.0"
-JoJUSAGE="usage: joj [-acelprux] | help"
+JoJVERSION="version 1.2.0"
+JoJUSAGE="usage: joj [-acejlpru] | help"
 JoJINFO="\tJOJ $JoJVERSION\nCopyright 2017 | Kieran Sherman\n\n$JoJUSAGE\n"
 
 __check() {
@@ -14,12 +14,12 @@ __check() {
   a="a: open the project folder in Atom"
   c="c: clone the dev directory to the usr directory"
   e="e: edit the joj shell file in Atom"
+  j="j: update joj version"
   l="l: view JarOfJava locally (from your computer)"
   p="p: view JarOfJava publicly (online)"
   r="r: retrieve from the git repository"
   u="u: update to the git repository"
-  x="x: update joj version"
-  usages=("$a" "$c" "$e" "$l" "$p" "$r" "$u" "$x")
+  usages=("$a" "$c" "$e" "$j" "$l" "$p" "$r" "$u" )
 
   if [[ "$arg1" == "help" ]]
   then
@@ -64,6 +64,15 @@ __parse() {
         open -b "com.github.atom" /usr/local/bin/joj
       )
     ;;
+    j)
+      [[ $HELP == true ]] && echo "usage: joj -x |-> retrieves the newest version of JoJ" || (
+        cd $JoJSHELL
+        rm joj
+        curl -o joj https://raw.githubusercontent.com/KieranSherman/kieransherman.github.io/master/misc/joj
+        chmod +x joj
+        joj
+      )
+    ;;
     l)
       [[ $HELP == true ]] && echo "usage: joj -l [file] |-> opens an html file locally, defaults to index.html" || (
         if [[ -z "$2" ]]
@@ -93,15 +102,6 @@ __parse() {
         git push
       )
       ;;
-    x)
-      [[ $HELP == true ]] && echo "usage: joj -x |-> retrieves the newest version of JoJ" || (
-        cd $JoJSHELL
-        rm joj
-        curl -o joj https://raw.githubusercontent.com/KieranSherman/kieransherman.github.io/master/misc/joj
-        chmod +x joj
-        joj
-      )
-    ;;
   esac
 
   echo
