@@ -4,7 +4,7 @@
 JoJSHELL="/usr/local/bin"
 JoJPATH=`echo ~`"/bin/JarOfJava"
 JoJNAME="kieransherman.github.io"
-JoJVERSION="version 1.4.5"
+JoJVERSION="version 1.4.6"
 JoJUSAGE="usage: joj [-acejlprux] | help"
 JoJINFO="\tJoJ $JoJVERSION\nCopyright 2017 | Kieran Sherman\n\n$JoJUSAGE\n"
 
@@ -111,7 +111,7 @@ __parse() {
 
         [[ "$USR" == "y" ]] && (
           rm "$JoJSHELL/joj"
-          rm -Rf "$JoJPATH"
+          rm -Rvf "$JoJPATH"
           echo "JoJ has been uninstalled"
         )
       )
@@ -145,7 +145,7 @@ __install() {
 
   echo "--                                             --"
   echo "--         JoJ installed successfully          --"
-  echo "--       $JoJUSAGE                             --"
+  echo "--       $JoJUSAGE        --"
   echo "================================================="
   echo
 }
