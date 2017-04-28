@@ -4,8 +4,8 @@
 JoJSHELL="/usr/local/bin"
 JoJPATH=`echo ~`"/bin/JarOfJava"
 JoJNAME="kieransherman.github.io"
-JoJVERSION="version 1.4.1"
-JoJUSAGE="usage: joj [-acejlpru] | help"
+JoJVERSION="version 1.4.2"
+JoJUSAGE="usage: joj [-acejlprux] | help"
 JoJINFO="\tJoJ $JoJVERSION\nCopyright 2017 | Kieran Sherman\n\n$JoJUSAGE\n"
 
 __check() {
