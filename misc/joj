@@ -4,7 +4,7 @@
 JoJSHELL="/usr/local/bin"
 JoJPATH=`echo ~`"/bin/JarOfJava"
 JoJNAME="kieransherman.github.io"
-JoJVERSION="version 1.2.1"
+JoJVERSION="version 1.2.2"
 JoJUSAGE="usage: joj [-acejlpru] | help"
 JoJINFO="\tJOJ $JoJVERSION\nCopyright 2017 | Kieran Sherman\n\n$JoJUSAGE\n"
 
@@ -66,7 +66,7 @@ __parse() {
     ;;
     j)
       [[ $HELP == true ]] && echo "usage: joj -x |-> retrieves the newest version of JoJ" || (
-        echo "Updating JoJ version..."
+        echo "Updating JoJ version... current: $JoJVERSION"
         cd $JoJSHELL
         rm joj
         curl -o joj https://raw.githubusercontent.com/KieranSherman/kieransherman.github.io/master/misc/joj
