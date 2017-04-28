@@ -4,7 +4,7 @@
 JoJSHELL="/usr/local/bin"
 JoJPATH=`echo ~`"/bin/JarOfJava"
 JoJNAME="kieransherman.github.io"
-JoJVERSION="version 1.2.3"
+JoJVERSION="version 1.3.0"
 JoJUSAGE="usage: joj [-acejlpru] | help"
 JoJINFO="\tJOJ $JoJVERSION\nCopyright 2017 | Kieran Sherman\n\n$JoJUSAGE\n"
 
@@ -65,7 +65,7 @@ __parse() {
       )
     ;;
     j)
-      [[ $HELP == true ]] && echo "usage: joj -x |-> retrieves the newest version of JoJ" || (
+      [[ $HELP == true ]] && echo "usage: joj -j |-> retrieves the newest version of the JoJ shell commands" || (
         echo "Updating JoJ version... current: $JoJVERSION"
         cd $JoJSHELL
         rm joj
