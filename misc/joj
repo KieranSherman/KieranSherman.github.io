@@ -4,7 +4,7 @@
 JoJSHELL="/usr/local/bin"
 JoJPATH=`echo ~`"/bin/JarOfJava"
 JoJNAME="kieransherman.github.io"
-JoJVERSION="version 1.2.2"
+JoJVERSION="version 1.2.3"
 JoJUSAGE="usage: joj [-acejlpru] | help"
 JoJINFO="\tJOJ $JoJVERSION\nCopyright 2017 | Kieran Sherman\n\n$JoJUSAGE\n"
 
@@ -13,8 +13,8 @@ __check() {
 
   a="a: open the project folder in Atom"
   c="c: clone the dev directory to the usr directory"
-  e="e: edit the joj shell file in Atom"
-  j="j: update joj version"
+  e="e: edit the JoJ shell file in Atom"
+  j="j: update the JoJ shell script to the newest version"
   l="l: view JarOfJava locally (from your computer)"
   p="p: view JarOfJava publicly (online)"
   r="r: retrieve from the git repository"
