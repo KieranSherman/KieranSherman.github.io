@@ -4,7 +4,7 @@
 JoJSHELL="/usr/local/bin"
 JoJPATH=`echo ~`"/bin/JarOfJava"
 JoJNAME="kieransherman.github.io"
-JoJVERSION="version 1.4.4"
+JoJVERSION="version 1.4.5"
 JoJUSAGE="usage: joj [-acejlprux] | help"
 JoJINFO="\tJoJ $JoJVERSION\nCopyright 2017 | Kieran Sherman\n\n$JoJUSAGE\n"
 
@@ -145,7 +145,7 @@ __install() {
 
   echo "--                                             --"
   echo "--         JoJ installed successfully          --"
-  echo "-- restart Terminal for changes to take effect --"
+  echo "--       $JoJUSAGE                             --"
   echo "================================================="
   echo
 }
