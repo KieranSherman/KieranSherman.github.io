@@ -4,7 +4,7 @@
 JoJSHELL="/usr/local/bin"
 JoJPATH=`echo ~`"/bin/JarOfJava"
 JoJNAME="kieransherman.github.io"
-JoJVERSION="version 1.4.0"
+JoJVERSION="version 1.4.1"
 JoJUSAGE="usage: joj [-acejlpru] | help"
 JoJINFO="\tJoJ $JoJVERSION\nCopyright 2017 | Kieran Sherman\n\n$JoJUSAGE\n"
 
@@ -149,7 +149,7 @@ main() {
   if [[ ! "$dir" == "/usr/local/bin" ]]
   then
     __install $dir
-    return
+    exit 0
   fi
 
   cd "$JoJPATH/$JoJNAME"
