@@ -4,7 +4,7 @@
 JoJSHELL="/usr/local/bin"
 JoJPATH=`echo ~`"/bin/JarOfJava"
 JoJNAME="kieransherman.github.io"
-JoJVERSION="version 1.4.3"
+JoJVERSION="version 1.4.4"
 JoJUSAGE="usage: joj [-acejlprux] | help"
 JoJINFO="\tJoJ $JoJVERSION\nCopyright 2017 | Kieran Sherman\n\n$JoJUSAGE\n"
 
@@ -106,9 +106,14 @@ __parse() {
       ;;
     x)
       [[ $HELP == true ]] && echo "usage: joj -x |-> removes the JoJ shell commands and repository from your machine" || (
-        rm "$JoJSHELL/joj"
-        rm -R "$JoJPATH"
-        echo "JoJ has been uninstalled"
+        echo "Are you sure you want to remove JoJ? (y/n)"
+        read USR
+
+        [[ "$USR" == "y" ]] && (
+          rm "$JoJSHELL/joj"
+          rm -Rf "$JoJPATH"
+          echo "JoJ has been uninstalled"
+        )
       )
     ;;
     *)
