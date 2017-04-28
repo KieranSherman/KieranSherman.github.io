@@ -17,10 +17,10 @@ But JoJ is more than just HTML - it's an open-source project.  As for most open-
 But JoJ is more than just an open-source project - it's a toolset as well.  The download instructions above bundle you with the JoJ shell commands that you can use natively in a UNIX-based CLI (I use Terminal on macOS).  For example: 
 
 ```shell 
-  joj -r    #retrieves the lastest version of this repository.
-  joj -j    #updates the JoJ shell version.
-  joj -a    #opens the JoJ project folder in Atom.
-  joj -l    #opens the JoJ project locally in Chrome.
+  joj -r    #retrieves the lastest version of this repository
+  joj -j    #updates the JoJ shell to the newest version
+  joj -a    #opens the JoJ project folder in Atom
+  joj -l    #opens the JoJ project locally in Chrome
   joj       #displays version and usage
   joj help  #displays help on using joj
 ````
