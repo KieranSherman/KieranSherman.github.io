@@ -1,23 +1,26 @@
 #!/bin/bash
 #author: Kieran Sherman
 
+JoJSHELL="/usr/local/bin"
 JoJPATH=`echo ~`"/bin/JarOfJava"
 JoJNAME="kieransherman.github.io"
-JoJVERSION="version 1.0.0"
-JoJUSAGE="usage: joj [-acelpru] | help"
-JoJINFO="\tJOJ $JoJVERSION\nCopyright 2017 | Kieran Sherman\n\n$JoJUSAGE\n"
+JoJVERSION="version 1.4.7"
+JoJUSAGE="usage: joj [-acejlprux] | help"
+JoJINFO="\tJoJ $JoJVERSION\nCopyright 2017 | Kieran Sherman\n\n$JoJUSAGE\n"
 
 __check() {
   arg1=$1
 
-  usage_a="a: open the project folder in Atom"
-  usage_c="c: clone the dev directory to the usr directory"
-  usage_e="e: edit the joj shell file in Atom"
-  usage_l="l: view JarOfJava locally (from your computer)"
-  usage_p="p: view JarOfJava publicly (online)"
-  usage_r="r: retrieve from the git repository"
-  usage_u="u: update to the git repository"
-  usages=("$usage_a" "$usage_c" "$usage_e" "$usage_l" "$usage_p" "$usage_r" "$usage_u")
+  a="a: open the project folder in Atom"
+  c="c: clone the dev directory to the usr directory"
+  e="e: edit the JoJ shell file in Atom"
+  j="j: update the JoJ shell script to the newest version"
+  l="l: view JarOfJava locally (from your computer)"
+  p="p: view JarOfJava publicly (online)"
+  r="r: retrieve from the git repository"
+  u="u: update to the git repository"
+  x="x: remove the JoJ shell commands and repository"
+  usages=("$a" "$c" "$e" "$j" "$l" "$p" "$r" "$u" "$x")
 
   if [[ "$arg1" == "help" ]]
   then
@@ -43,7 +46,7 @@ __check() {
 
 __parse() {
   HELP=false
-  [[ "$2" == "help" ]] && HELP=true
+  [[ "$2" == "help" ]] && HELP=true; printf "%s" "--";
 
   case $1 in
     a)
@@ -60,6 +63,16 @@ __parse() {
     e)
       [[ $HELP == true ]] && echo "usage: joj -e |-> opens the joj shell script in Atom" || (
         open -b "com.github.atom" /usr/local/bin/joj
+      )
+    ;;
+    j)
+      [[ $HELP == true ]] && echo "usage: joj -j |-> retrieves the newest version of the JoJ shell commands" || (
+        echo "Updating JoJ version... current: $JoJVERSION"
+        cd $JoJSHELL
+        rm joj
+        curl -o joj https://raw.githubusercontent.com/KieranSherman/kieransherman.github.io/master/misc/joj
+        chmod +x joj
+        joj
       )
     ;;
     l)
@@ -91,7 +104,25 @@ __parse() {
         git push
       )
       ;;
+    x)
+      [[ $HELP == true ]] && echo "usage: joj -x |-> removes the JoJ shell commands and repository from your machine" || (
+        echo "Are you sure you want to remove JoJ? (y/n)"
+        read USR
+
+        [[ "$USR" == "y" ]] && (
+          rm -v "$JoJSHELL/joj"
+          rm -Rvf "$JoJPATH"
+          echo "JoJ has been uninstalled"
+        )
+      )
+    ;;
+    *)
+      printf "%s\n\n" "$JoJUSAGE"
+      exit 1
+    ;;
   esac
+
+  echo
 }
 
 __install() {
@@ -114,7 +145,7 @@ __install() {
 
   echo "--                                             --"
   echo "--         JoJ installed successfully          --"
-  echo "-- restart Terminal for changes to take effect --"
+  echo "--       $JoJUSAGE        --"
   echo "================================================="
   echo
 }
@@ -125,7 +156,7 @@ main() {
   if [[ ! "$dir" == "/usr/local/bin" ]]
   then
     __install $dir
-    return
+    exit 0
   fi
 
   cd "$JoJPATH/$JoJNAME"
