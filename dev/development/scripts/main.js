@@ -66,5 +66,5 @@ function checkValid(form) {
   }
 
   if(valid)
-    window.location.assign("#");
+    window.location.assign("login.html");
 }
